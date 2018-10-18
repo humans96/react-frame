@@ -1,10 +1,120 @@
-@import './antd.min.css';
-.nav{
-  p{
-    text-align: center;
-  }
+// @import './antd.min.css';
+
+html{font-size:10px}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+@media screen and (min-width:640px) and (max-width:768px){html{font-size:20px}}
+@media screen and (min-width:768px) and (max-width:992px){html{font-size:24px}}
+@media screen and (min-width:992px) and (max-width:1200px){html{font-size:26px}}
+@media screen and (min-width:1200px) and (max-width:1600px){html{font-size:30px}}
+@media screen and (min-width:1600px){html{font-size:34px}}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+.custom-button {
+    background-color: #00c0ef; 
+    border: 1px solid #00acd6; 
+    width: 120px;
+    float: right;
+    margin-left: 12px;
 }
-.random{
-  word-wrap:break-word;
-  padding: 20px;
+.ant-table-thead>tr>th{
+    background-color: #00c0ef;
+    font-weight: 600;
 }
+.ant-table {
+    line-height: 1
+}
+.breadcrumb {
+    font-size: 16px;
+    float: right;
+    list-style: none;
+    margin-bottom: 20px;
+    .link-active{
+        color: #777;
+    }
+    li{
+        display: inline-block;
+    }
+    li+li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "/\A0";
+    }
+}
+.Panel {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #f4f4f4;
+    border-top: 2px solid #9cc8e3;
+    border-top-left-radius: 1px 80%;
+    border-top-right-radius: 1px 80%;
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    h2.title{
+        color: #3c8dbc;
+        padding-bottom: 9px;
+        border-bottom: 1px solid #eee;
+    }
+}
+.ant-table-tbody>tr>td {
+    line-height: 1.5;
+}
+.highlight {
+    color: #f50;
+}
+.main {
+    .message-text{
+        float: right;
+        font-size: 16px;
+        color: rgba(15, 144, 222, 0.98);
+        font-weight: 500;
+    }
+    .avatarButton{
+        float: right;
+        margin: 9px 60px 9px 20px;
+    }
+    .ant-menu{
+        color: #c2c7d0;
+        background-color: #343a40;
+    }
+    .ant-menu-item,.ant-menu-submenu-title{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .secondly-menu .ant-menu-sub {
+        background-color: rgba(0,0,0,.3);
+        .ant-menu-item {
+            // padding-left: 20px !important;
+            // font-size: 12px;
+            font-weight: 400;
+        }
+    }
+    .logo {
+        border-bottom: 1px solid #4b545c;
+        div {
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            height: 49px;
+            img {
+                height: 30px;
+                margin: 10px;
+                vertical-align: top;
+            }
+            span {
+                font-size: 24px;
+                line-height: 46px;
+            }
+        }
+    }
+}
+// tr:nth-child(2n)
+// tbody tr.even {
+//     background-color:#AAA;
+// }

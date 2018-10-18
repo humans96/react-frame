@@ -1,18 +1,25 @@
 import React from 'react';
 import Home from './Home';
-import Num from './Num';
-import Random from './Random';
-import { Router, Route, browserHistory } from 'react-router';
+import Layout from './Layout';
+import { Router, Route, hashHistory, IndexRoute  } from 'react-router';
 
 
 class AppRouter extends React.Component {
+    isLogin() {
+        // const token = $.cookie('token');
+        // if (!token) {
+        //   hashHistory.push('/login');
+        // }
+    }
+    
     render(){
         return (
-        <Router history={browserHistory}>
-            <Route path="/" component={Home}>
-            <Route path="/random" component={Random}/>
-            <Route path="/num" component={Num}/>
+        <Router history={ hashHistory }>
+            {/* <Route path='/login' component={ Login }/> */}
+            <Route path="/" component={ Layout } onEnter={this.isLogin}>
+                <IndexRoute component={ Home } />
             </Route>
+            <Route path="/:id" component={ Layout } onEnter={this.isLogin} />
         </Router>
         )
     }
