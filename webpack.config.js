@@ -13,7 +13,7 @@ const config = merge(baseWebpackConfig, {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    chunkFilename: '[name]-[id].js',
+    chunkFilename: '[name]-[chunkhash:8].js',
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
@@ -56,7 +56,7 @@ const config = merge(baseWebpackConfig, {
       minChunks: Infinity,
     }),
     new ExtractTextPlugin({
-      filename: `css/bundle.css`, 
+      filename: `css/bundle-[hash:8].css`, 
       disable: false,
       allChunks: true 
     }),
@@ -93,6 +93,7 @@ if (process.env.NODE_ENV === 'development') {
 
 if (process.env.NODE_ENV === 'production') {
   config.devtool = 'cheap-module-source-map';
+  config.output.filename = '[name]-[chunkhash:8].js';
   config.plugins = (config.plugins || []).concat([
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
