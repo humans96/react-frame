@@ -70,10 +70,6 @@ const config = merge(baseWebpackConfig, {
         to: '.',
       },
       {
-        from: path.join(__dirname, './lib'),
-        to: './lib',
-      },
-      {
         from: './favicon*',
         to: '.',
       }]),
