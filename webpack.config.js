@@ -40,16 +40,15 @@ const config = merge(baseWebpackConfig, {
         NODE_ENV: `"${process.env.NODE_ENV}"`,
       },
     }),
-    /* common 业务公共代码，vendor引入第三方 */
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: 2,
-    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: ({ resource }) => (
         resource && resource.indexOf('node_modules') >= 0 && resource.match(/\.js$/)
       )
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: 2,
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime',
