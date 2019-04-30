@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const json = require('./package.json');// 引进package.json
 
 const newEntry = {
-  bundle: ['babel-polyfill', 'whatwg-fetch', './src/index'],
+  bundle: ['babel-polyfill', './src/index'],
 };
 
 const config = {
@@ -34,11 +34,19 @@ const config = {
           fallback: 'style-loader',
           use: [
             // 'style-loader',
-            'css-loader?url=false',
+            {
+              loader: 'css-loader?url=false',
+              options: {
+                minimize: true,
+              },
+            },
             'autoprefixer-loader',
             'less-loader',
           ],
         }),
+        exclude: [
+          path.resolve(__dirname, './node_modules'),
+        ],
       },
     ],
   },

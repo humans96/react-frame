@@ -1,13 +1,13 @@
-const merge = require('webpack-merge');//webpack配置文件合并
-const baseWebpackConfig = require("./webpack.base.conf");//基础配置
+const merge = require('webpack-merge');// webpack配置文件合并
 
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HappyPack = require('happypack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const htmlWebpackPlugin = require('html-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseWebpackConfig = require('./webpack.base.conf');// 基础配置
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const config = merge(baseWebpackConfig, {
   output: {
@@ -17,13 +17,13 @@ const config = merge(baseWebpackConfig, {
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: './index.html',
       inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
       },
     }),
     new HappyPack({
@@ -44,7 +44,7 @@ const config = merge(baseWebpackConfig, {
       name: 'vendor',
       minChunks: ({ resource }) => (
         resource && resource.indexOf('node_modules') >= 0 && resource.match(/\.js$/)
-      )
+      ),
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
@@ -55,9 +55,9 @@ const config = merge(baseWebpackConfig, {
       minChunks: Infinity,
     }),
     new ExtractTextPlugin({
-      filename: `css/bundle-[hash:8].css`, 
+      filename: 'css/bundle-[hash:8].css', 
       disable: false,
-      allChunks: true 
+      allChunks: true, 
     }),
     new CopyWebpackPlugin([
       {
@@ -94,8 +94,8 @@ if (process.env.NODE_ENV === 'production') {
       sourceMap: true,
       compress: {
         warnings: false,
-        drop_console: true
-      }
+        drop_console: true,
+      },
     }),
   ]);
 }

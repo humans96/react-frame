@@ -5,7 +5,7 @@ import store from 'store/index';
 import AppRouter from './router';
 
 export default () => (
-    <Provider {...store}>
-      <AppRouter />
-    </Provider>
-)
+  <Provider {...store}>
+    <AppRouter />
+  </Provider>
+);

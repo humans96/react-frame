@@ -1,7 +1,9 @@
 import React from 'react';
+import {
+ Router, Route, hashHistory, IndexRoute, 
+} from 'react-router';
 import Home from './Home';
 import Layout from './Layout';
-import { Router, Route, hashHistory, IndexRoute  } from 'react-router';
 
 
 class AppRouter extends React.Component {
@@ -12,16 +14,16 @@ class AppRouter extends React.Component {
         // }
     }
     
-    render(){
+    render() {
         return (
-        <Router history={ hashHistory }>
+          <Router history={hashHistory}>
             {/* <Route path='/login' component={ Login }/> */}
-            <Route path="/" component={ Layout } onEnter={this.isLogin}>
-                <IndexRoute component={ Home } />
+            <Route path="/" component={Layout} onEnter={this.isLogin}>
+              <IndexRoute component={Home} />
             </Route>
-            <Route path="/:id" component={ Layout } onEnter={this.isLogin} />
-        </Router>
-        )
+            <Route path="/:id" component={Layout} onEnter={this.isLogin} />
+          </Router>
+        );
     }
 }
 export default AppRouter;
