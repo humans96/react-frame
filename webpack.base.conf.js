@@ -48,6 +48,18 @@ const config = {
           path.resolve(__dirname, './node_modules'),
         ],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {
