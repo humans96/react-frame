@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HappyPack = require('happypack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');// 基础配置
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -97,6 +98,7 @@ if (process.env.NODE_ENV === 'production') {
         drop_console: true,
       },
     }),
+    new CleanWebpackPlugin(),
   ]);
 }
 
